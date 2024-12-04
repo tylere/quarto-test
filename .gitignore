@@ -9,3 +9,5 @@
 # Quarto files
 /.quarto/
 /_site/
+*-checkpoint.html
+*/.ipynb_checkpoints/*
