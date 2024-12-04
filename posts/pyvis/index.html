@@ -174,29 +174,117 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<div id="cell-1" class="cell" data-execution_count="1">
+<div id="cell-1" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pyvis.network <span class="im">import</span> Network</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> networkx <span class="im">as</span> nx</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> Network(notebook<span class="op">=</span><span class="va">True</span>, cdn_resources<span class="op">=</span><span class="st">"local"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> Network(notebook<span class="op">=</span><span class="va">True</span>, cdn_resources<span class="op">=</span><span class="st">"remote"</span>)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>nxg <span class="op">=</span> nx.complete_graph(<span class="dv">5</span>)</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>g.from_nx(nxg)</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>g.show(<span class="st">'nx.html'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code>Local cdn resources have problems on chrome/safari when used in jupyter-notebook. </code></pre>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="1">
+<div class="cell-output cell-output-display" data-execution_count="2">
 
         <iframe width="100%" height="600px" src="nx.html" frameborder="0" allowfullscreen=""></iframe>
         
 <p>pyvis test</p>
 </div>
 </div>
+<div id="cell-2" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> Network(notebook<span class="op">=</span><span class="va">True</span>, cdn_resources<span class="op">=</span><span class="st">"remote"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>g.add_nodes([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>], value<span class="op">=</span>[<span class="dv">10</span>, <span class="dv">100</span>, <span class="dv">400</span>],</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                         title<span class="op">=</span>[<span class="st">'I am node 1'</span>, <span class="st">'node 2 here'</span>, <span class="st">'and im node 3'</span>],</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>                         x<span class="op">=</span>[<span class="fl">21.4</span>, <span class="fl">54.2</span>, <span class="fl">11.2</span>],</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>                         y<span class="op">=</span>[<span class="fl">100.2</span>, <span class="fl">23.54</span>, <span class="fl">32.1</span>],</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>                         label<span class="op">=</span>[<span class="st">'NODE 1'</span>, <span class="st">'NODE 2'</span>, <span class="st">'NODE 3'</span>],</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>                         color<span class="op">=</span>[<span class="st">'#00ff1e'</span>, <span class="st">'#162347'</span>, <span class="st">'#dd4b39'</span>])</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>g.show(<span class="st">'example2.html'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="3">
+
+        <iframe width="100%" height="600px" src="example2.html" frameborder="0" allowfullscreen=""></iframe>
+        
+</div>
+</div>
+<div id="cell-3" class="cell" data-execution_count="4">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>nx_graph <span class="op">=</span> nx.cycle_graph(<span class="dv">10</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>nx_graph.nodes[<span class="dv">1</span>][<span class="st">'title'</span>] <span class="op">=</span> <span class="st">'Number 1'</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>nx_graph.nodes[<span class="dv">1</span>][<span class="st">'group'</span>] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>nx_graph.nodes[<span class="dv">3</span>][<span class="st">'title'</span>] <span class="op">=</span> <span class="st">'I belong to a different group!'</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>nx_graph.nodes[<span class="dv">3</span>][<span class="st">'group'</span>] <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>nx_graph.add_node(<span class="dv">20</span>, size<span class="op">=</span><span class="dv">20</span>, title<span class="op">=</span><span class="st">'couple'</span>, group<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>nx_graph.add_node(<span class="dv">21</span>, size<span class="op">=</span><span class="dv">15</span>, title<span class="op">=</span><span class="st">'couple'</span>, group<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>nx_graph.add_edge(<span class="dv">20</span>, <span class="dv">21</span>, weight<span class="op">=</span><span class="dv">5</span>)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>nx_graph.add_node(<span class="dv">25</span>, size<span class="op">=</span><span class="dv">25</span>, label<span class="op">=</span><span class="st">'lonely'</span>, title<span class="op">=</span><span class="st">'lonely node'</span>, group<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>nt <span class="op">=</span> Network(<span class="st">'500px'</span>, <span class="st">'500px'</span>, notebook<span class="op">=</span><span class="va">True</span>, cdn_resources<span class="op">=</span><span class="st">"remote"</span>)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co"># populates the nodes and edges data structures</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>nt.from_nx(nx_graph)</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>nt.show(<span class="st">'nx.html'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="4">
+
+        <iframe width="500px" height="500px" src="nx.html" frameborder="0" allowfullscreen=""></iframe>
+        
+</div>
+</div>
+<section id="game-of-thrones-example" class="level1">
+<h1>Game of Thrones Example</h1>
+<div id="cell-5" class="cell" data-execution_count="8">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>got_net <span class="op">=</span> Network(</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    height<span class="op">=</span><span class="st">"750px"</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    width<span class="op">=</span><span class="st">"100%"</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    bgcolor<span class="op">=</span><span class="st">"#222222"</span>,</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    font_color<span class="op">=</span><span class="st">"white"</span>,</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    notebook<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    cdn_resources<span class="op">=</span><span class="st">"remote"</span>)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co"># set the physics layout of the network</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>got_net.barnes_hut()</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>got_data <span class="op">=</span> pd.read_csv(<span class="st">"stormofswords.csv"</span>)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>sources <span class="op">=</span> got_data[<span class="st">'Source'</span>]</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>targets <span class="op">=</span> got_data[<span class="st">'Target'</span>]</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>weights <span class="op">=</span> got_data[<span class="st">'Weight'</span>]</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>edge_data <span class="op">=</span> <span class="bu">zip</span>(sources, targets, weights)</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> e <span class="kw">in</span> edge_data:</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    src <span class="op">=</span> e[<span class="dv">0</span>]</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    dst <span class="op">=</span> e[<span class="dv">1</span>]</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    w <span class="op">=</span> e[<span class="dv">2</span>]</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    got_net.add_node(src, src, title<span class="op">=</span>src)</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    got_net.add_node(dst, dst, title<span class="op">=</span>dst)</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>    got_net.add_edge(src, dst, value<span class="op">=</span>w)</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>neighbor_map <span class="op">=</span> got_net.get_adj_list()</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a><span class="co"># add neighbor data to node hover data</span></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> node <span class="kw">in</span> got_net.nodes:</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>    node[<span class="st">"title"</span>] <span class="op">+=</span> <span class="st">" Neighbors:&lt;br&gt;"</span> <span class="op">+</span> <span class="st">"&lt;br&gt;"</span>.join(neighbor_map[node[<span class="st">"id"</span>]])</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>    node[<span class="st">"value"</span>] <span class="op">=</span> <span class="bu">len</span>(neighbor_map[node[<span class="st">"id"</span>]])</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>got_net.show(<span class="st">"gameofthrones.html"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="8">
+
+        <iframe width="100%" height="750px" src="gameofthrones.html" frameborder="0" allowfullscreen=""></iframe>
+        
+</div>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
