@@ -1,0 +1,16 @@
+{
+  "hash": "b9dde990be77c589ca19c347c4892bba",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: \"pyvis demo\"\nformat:\n  html:\n    code-fold: true\njupyter: python3\n---\n\n::: {#6484f989 .cell execution_count=1}\n``` {.python .cell-code}\nfrom pyvis.network import Network\nimport networkx as nx\n\ng = Network(notebook=True, cdn_resources=\"local\")\nnxg = nx.complete_graph(5)\ng.from_nx(nxg)\ng.show('nx.html')\n```\n\n::: {.cell-output .cell-output-stdout}\n```\nLocal cdn resources have problems on chrome/safari when used in jupyter-notebook. \n```\n:::\n\n::: {.cell-output .cell-output-display execution_count=4}\n```{=html}\n\n        <iframe\n            width=\"100%\"\n            height=\"600px\"\n            src=\"nx.html\"\n            frameborder=\"0\"\n            allowfullscreen\n            \n        ></iframe>\n        \n```\n\npyvis test\n:::\n:::\n\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [],
+    "includes": {
+      "include-in-header": [
+        "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js\" integrity=\"sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==\" crossorigin=\"anonymous\"></script>\n<script src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js\" integrity=\"sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==\" crossorigin=\"anonymous\" data-relocate-top=\"true\"></script>\n<script type=\"application/javascript\">define('jquery', [],function() {return window.jQuery;})</script>\n"
+      ]
+    }
+  }
+}

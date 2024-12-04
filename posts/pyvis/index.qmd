@@ -1,0 +1,19 @@
+---
+title: "pyvis demo"
+format:
+  html:
+    code-fold: true
+jupyter: python3
+---
+
+```{python}
+#| fig-cap: "pyvis test"
+
+from pyvis.network import Network
+import networkx as nx
+
+g = Network(notebook=True, cdn_resources="local")
+nxg = nx.complete_graph(5)
+g.from_nx(nxg)
+g.show('nx.html')
+```
